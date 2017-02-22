@@ -39,15 +39,14 @@ gulp.task('sass', function () {
 	.pipe(gulp.dest('app/css'));
 });
 
-
 // build
-// gulp.task('build', function () {
-// 	return gulp.src('*.html')
-// 		.pipe(useref())
-// 		.pipe(gulpif('*.js', uglify()))
-// 		.pipe(gulpif('*.css', minifyCss()))
-// 		.pipe(gulp.dest('public'));
-// });
+gulp.task('build', function () {
+	return gulp.src('*.html')
+		.pipe(useref())
+		.pipe(gulpif('*.js', uglify()))
+		.pipe(gulpif('*.css', minifyCss()))
+		.pipe(gulp.dest('public'));
+});
 
 // watch
 gulp.task("watch", function() {
