@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Unit test template</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="app/css/main.css">
+</head>
+<body ng-cloak>
+	<div class="container" ng-controller="testCtrl">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div 
+					ng-class="{
+						'panel-success': strength === 'strong',
+						'panel-default': strength === 'medium',
+						'panel-danger': strength === 'weak'
+					}" 
+					class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							{{ title }}
+						</h3>
+					</div>
+					<div class="panel-body">
+						<input type="password" style="margin-bottom: 10px;" ng-model='password' class="form-control">
+						<input 
+							type="button" 
+							value="Check" 
+							class="btn btn-primary"
+							ng-click="checkPassword()">
+						<span 
+							class="label"
+							style="font-size: 15px;" 
+							style="margin-left: 5px;" 
+							ng-class="{
+							'label-success': strength === 'strong',
+							'label-default': strength === 'medium',
+							'label-danger': strength === 'weak'
+							}" 
+							ng-show="strength">
+							{{ strength }}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/js/app.js"></script>
+</body>
+</html>
